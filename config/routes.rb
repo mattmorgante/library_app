@@ -1,4 +1,14 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
+  # get 'list', to: 'books#index' 
+  get 'books/list', to: 'books#list'
+  root "books#index"
+  resources :books  
+    # get 'items/', to:'items#index' 
+    # get 'items/:id', to: 'items#show'
+    # simplified as 
+  resources :items, :only => ["show","index"]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
